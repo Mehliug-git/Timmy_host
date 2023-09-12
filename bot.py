@@ -1,3 +1,14 @@
+"""
+install pip :
+pip install python-telegram-bot
+pip install make-response
+
+TODO: 
+
+-Faire un filtre du user_input pour enelever les accents
+-Mettre midjourney pour DALLE (voir si peux pas avoir de clé gratuite )
+
+"""
 import requests
 import telegram
 from telegram import ParseMode
@@ -90,6 +101,7 @@ def console(update: Update, context: CallbackContext):
             chat_id = chat_id,
             text=part) 
         else: 
+          pass
           #if part empty or just space, nothing append
   else : 
     update.message.reply_text("🚫 ERROR : Timmy ! Admin 🚫")
@@ -179,6 +191,11 @@ def moviesearch(update: Update, context: CallbackContext):#STREAMING function
             urls = re.findall('(http\S+)', str(streaming_info))#ICI FAIRE UNE REGEX QUI PREND PRIME VIDEO NETFLIX ETC
             urls_final = '\n\n'.join(urls)
             update.message.reply_text(f"*⚖️ Legal search for {movie_title}⚖️ : \n\n{urls_final}*", parse_mode=ParseMode.MARKDOWN)   
+        else:
+            pass
+            
+      
+            
   
     
     
