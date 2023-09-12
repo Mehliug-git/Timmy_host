@@ -1,0 +1,7 @@
+Flask==2.2.2
+Flask-SCSS
+Image 
+BeautifulSoup4 
+python-telegram-bot
+requests
+openai
