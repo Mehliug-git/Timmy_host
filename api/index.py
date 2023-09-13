@@ -1,25 +1,11 @@
-from flask import Flask, render_template
-import subprocess
+from flask import Flask
 
 app = Flask(__name__)
-bot_process = subprocess.Popen(['python3' , '../bot.py'])
 
+@app.route('/')
+def home():
+    return 'Hello, World!'
 
-@app.route("/")
-def page_web_de_mort():
-    #bot_process
-    #return "<html><body><img src='https://i.giphy.com/KmHueA88mFABT9GkkR.gif'></body></html>"
-    #page_web_de_mort()
-    return "TEST"  
-    
-
-app.run()
-  
-  
-  
-"""
-
-if __name__ == "__main__":
-    app.run()
-
-"""
+@app.route('/about')
+def about():
+    return 'About'
