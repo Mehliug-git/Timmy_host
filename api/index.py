@@ -2,7 +2,7 @@ from flask import Flask, render_template
 import subprocess
 
 app = Flask(__name__)
-bot_process = subprocess.Popen(['python3' , 'bot.py'])
+bot_process = subprocess.Popen(['python3' , '../bot.py'])
 
 
 @app.route("/")
