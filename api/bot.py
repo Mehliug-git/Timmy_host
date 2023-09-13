@@ -28,7 +28,7 @@ admin = False
 
 openai.api_key = os.getenv('OPENAI_TOKEN')
 #Telegram token
-token = os.getenv('TELEGRAM_TOKEN')
+token = "6217534949:AAE6ZEeoI_vzo9IUugc8XBCjtIERybGj5kM"
 updater = Updater(token,use_context=True)
 rapidapi_key = os.getenv('RAPIDAPI_KEY')
 
