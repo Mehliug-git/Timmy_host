@@ -7,5 +7,4 @@ python-telegram-bot
 requests
 openai
 telegram
-openai
 bs4
