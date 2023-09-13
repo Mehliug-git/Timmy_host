@@ -8,3 +8,4 @@ requests
 openai
 telegram
 openai
+bs4
