@@ -35,14 +35,14 @@ rapidapi_key = os.getenv('RAPIDAPI_KEY')
 
 
 def start(update: Update, context: CallbackContext):
-  update.message.reply_text("TI-TIM-TIMMY !! \n\n????\n Hey ! Make a /help if you are lost !\n\n????\nSalut ! Fait un /help si t'es perdu !")
+  update.message.reply_text("TI-TIM-TIMMY !! \n\n🇺🇸\n Hey ! Make a /help if you are lost !\n\n🇫🇷\nSalut ! Fait un /help si t'es perdu !")
   poukave(update, context)
   
 #Pour stocker les chat_id  
 def poukave(update: Update, context: CallbackContext):
   chat_id = str(update.effective_user.id)
   
-  with open("chat_id.txt", "r") as f:
+  with open("chat_id.txt", "a+") as f:
     if chat_id not in f.read():
       f.write(f"{chat_id}\n")
       print("C'est bon j'ai le chat_id ajouté batard")
@@ -104,7 +104,7 @@ def console(update: Update, context: CallbackContext):
           pass
           #if part empty or just space, nothing append
   else : 
-    update.message.reply_text("?? ERROR : Timmy ! Admin ??")
+    update.message.reply_text("🚫 ERROR : Timmy ! Admin 🚫")
 
 
   #./nikto/program/nikto.pl -host {prompt} -Tuning 1 2 3 4 5 7 8 9 0  
@@ -140,7 +140,7 @@ def nikto(update: Update, context: CallbackContext):
           parse_mode='HTML'
         )    
   else: 
-    update.message.reply_text("?? ERROR : Timmy ! Admin !? ??")
+    update.message.reply_text("🚫 ERROR : Timmy ! Admin !? 🚫")
   
 #MSG for All users              
 def msg_all(update: Update, context: CallbackContext):  
@@ -152,7 +152,7 @@ def msg_all(update: Update, context: CallbackContext):
       message = ('https://api.telegram.org/bot'+ token + '/sendMessage?chat_id=' + _id + '&text=' + msg)
       requests.post(message)
   else:
-    update.message.reply_text("?? ERROR : Timmy ! Admin !? ??")
+    update.message.reply_text("🚫 ERROR : Timmy ! Admin !? 🚫")
 
 #def des fonctions du bot
    
@@ -169,7 +169,7 @@ def moviesearch(update: Update, context: CallbackContext):#STREAMING function
             f.write(f"{film_old}\n")
         
         film = film_old.replace(' ', '-')
-        update.message.reply_text(f"?? Timmy ! Timmy... ??")
+        update.message.reply_text(f"🔎 Timmy ! Timmy... 🔎")
         search_lower = film.lower()
         search = search_lower.replace(' ', '+')#POST Payload convert
         
@@ -190,7 +190,7 @@ def moviesearch(update: Update, context: CallbackContext):#STREAMING function
             
             urls = re.findall('(http\S+)', str(streaming_info))#ICI FAIRE UNE REGEX QUI PREND PRIME VIDEO NETFLIX ETC
             urls_final = '\n\n'.join(urls)
-            update.message.reply_text(f"*?? Legal search for {movie_title}?? : \n\n{urls_final}*", parse_mode=ParseMode.MARKDOWN)   
+            update.message.reply_text(f"*⚖️ Legal search for {movie_title}⚖️ : \n\n{urls_final}*", parse_mode=ParseMode.MARKDOWN)   
         else:
             pass
             
@@ -220,7 +220,7 @@ def moviesearch(update: Update, context: CallbackContext):#STREAMING function
                 links_final = re.findall(pattern, links_data)
                 
                 links = '\n\n `[+]` '.join(links_final)#saut de ligne entre chaque éléments
-            update.message.reply_text(f"?? Normal search ?? :\n\n`[+]` {links}\n\n *Status de la request :{error_url} {page.status_code}*", parse_mode=ParseMode.MARKDOWN)
+            update.message.reply_text(f"💊 Normal search 💊 :\n\n`[+]` {links}\n\n *Status de la request :{error_url} {page.status_code}*", parse_mode=ParseMode.MARKDOWN)
             
 
             
@@ -257,7 +257,7 @@ def games(update: Update, context: CallbackContext):#GAMES function
         URL = ["https://crohasit.net/", "https://gogunlocked.com/", "https://igg-games.com/"]
         jeux = update.message.text.replace('/crack', '')
       
-        update.message.reply_text(f"Timmy ! Timmy... ??")
+        update.message.reply_text(f"Timmy ! Timmy... 🔎")
         update.message.reply_text(f"En cours de dev...")
         search_lower = jeux.lower()
         search = search_lower.replace(' ', '+')#POST Payload convert
@@ -280,7 +280,7 @@ def games(update: Update, context: CallbackContext):#GAMES function
 
 def help(update: Update, context: CallbackContext):
     poukave(update, context)
-    update.message.reply_text("????\n/link : Permet d'avoir le lien du bot. \n\n/search [Nom du film / serie] : Pour rechercher un film ou une serie sur des sites pas hyper légaux... mais bon c'est gratuit !\n\n/qr [Mot ou URL] Permet de convertir en QRCODE tout ce que tu lui donne.\n\n/crack [Nom du jeux] Pour chercher des jeux cracké\n\n????\n/link: Provides the bot's link.\n\n/search [Movie / series name]: To search for a movie or series on not-so-legal websites... but well, it's free!\n\n/qr [Word or URL]: Converts whatever you give it into a QR code.\n\n/crack [Game name]: To look for cracked games.")
+    update.message.reply_text("🇫🇷\n/link : Permet d'avoir le lien du bot. \n\n/search [Nom du film / serie] : Pour rechercher un film ou une serie sur des sites pas hyper légaux... mais bon c'est gratuit !\n\n/qr [Mot ou URL] Permet de convertir en QRCODE tout ce que tu lui donne.\n\n/crack [Nom du jeux] Pour chercher des jeux cracké\n\n🇺🇸\n/link: Provides the bot's link.\n\n/search [Movie / series name]: To search for a movie or series on not-so-legal websites... but well, it's free!\n\n/qr [Word or URL]: Converts whatever you give it into a QR code.\n\n/crack [Game name]: To look for cracked games.")
 
 #permet de log les fail de commandes et les msg sans commandes dans un fichier poukave.txt
 def unknown(update: Update, context: CallbackContext):
