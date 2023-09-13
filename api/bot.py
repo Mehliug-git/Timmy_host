@@ -9,7 +9,7 @@ TODO:
 -Mettre midjourney pour DALLE (voir si peux pas avoir de clé gratuite )
 
 """
-import requests
+#import requests
 import telegram
 from telegram import ParseMode
 from telegram.ext import Updater, CallbackContext, CommandHandler, MessageHandler, Filters
@@ -36,8 +36,8 @@ rapidapi_key = os.getenv('RAPIDAPI_KEY')
 
 def start(update: Update, context: CallbackContext):
   update.message.reply_text("TI-TIM-TIMMY !! \n\n🇺🇸\n Hey ! Make a /help if you are lost !\n\n🇫🇷\nSalut ! Fait un /help si t'es perdu !")
-  poukave(update, context)
-  
+  #poukave(update, context)
+"""
 #Pour stocker les chat_id  
 def poukave(update: Update, context: CallbackContext):
   chat_id = str(update.effective_user.id)
@@ -315,6 +315,7 @@ def telegram_link(update: Update, context: CallbackContext):
 
 #Trigger des fonctions
 updater.dispatcher.add_handler(CommandHandler('start', start))
+
 updater.dispatcher.add_handler(CommandHandler('help', help))
 updater.dispatcher.add_handler(CommandHandler('msgall', msg_all))  
 updater.dispatcher.add_handler(CommandHandler('auth', auth))
@@ -331,5 +332,7 @@ updater.dispatcher.add_handler(CommandHandler('qr', qrcode))
 
 updater.dispatcher.add_handler(MessageHandler(Filters.command, unknown))
 updater.dispatcher.add_handler(MessageHandler(Filters.text, unknown))   
+"""
+updater.dispatcher.add_handler(CommandHandler('start', start))
 #Run the bot
 updater.start_polling()
