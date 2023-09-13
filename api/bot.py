@@ -10,23 +10,23 @@ TODO:
 
 """
 #import requests
-import telegram
+#import telegram
 from telegram import ParseMode
 from telegram.ext import Updater, CallbackContext, CommandHandler, MessageHandler, Filters
 from telegram.update import Update
-from bs4 import BeautifulSoup
-import re 
+#from bs4 import BeautifulSoup
+#import re 
 import os
-import openai
-import subprocess
-import json
+#import openai
+#import subprocess
+#import json
 
 
 #Admin default status 
 global admin
 admin = False
 
-openai.api_key = os.getenv('OPENAI_TOKEN')
+#openai.api_key = os.getenv('OPENAI_TOKEN')
 #Telegram token
 token = "6217534949:AAE6ZEeoI_vzo9IUugc8XBCjtIERybGj5kM"
 updater = Updater(token,use_context=True)
