@@ -5,6 +5,4 @@ Image
 BeautifulSoup4 
 python-telegram-bot
 requests
-openai
 telegram
-bs4
