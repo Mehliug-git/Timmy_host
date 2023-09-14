@@ -9,17 +9,16 @@ TODO:
 -Mettre midjourney pour DALLE (voir si peux pas avoir de clé gratuite )
 
 """
-#import requests
+import requests
 #import telegram
 from telegram import ParseMode
 from telegram.ext import Updater, CallbackContext, CommandHandler, MessageHandler, Filters
 from telegram.update import Update
-#from bs4 import BeautifulSoup
-#import re 
+from bs4 import BeautifulSoup
+import re 
 import os
-#import openai
-#import subprocess
-#import json
+import subprocess
+import json
 
 
 #Admin default status 
@@ -33,11 +32,10 @@ updater = Updater(token,use_context=True)
 rapidapi_key = os.getenv('RAPIDAPI_KEY')
 
 
-
 def start(update: Update, context: CallbackContext):
   update.message.reply_text("TI-TIM-TIMMY !! \n\n🇺🇸\n Hey ! Make a /help if you are lost !\n\n🇫🇷\nSalut ! Fait un /help si t'es perdu !")
   #poukave(update, context)
-"""
+
 #Pour stocker les chat_id  
 def poukave(update: Update, context: CallbackContext):
   chat_id = str(update.effective_user.id)
@@ -194,10 +192,7 @@ def moviesearch(update: Update, context: CallbackContext):#STREAMING function
         else:
             pass
             
-      
-            
-  
-    
+          
     
 #NORMAL SEARCH 
         data = {"do":"search", "subaction":"search", "story": {search}}
@@ -222,7 +217,6 @@ def moviesearch(update: Update, context: CallbackContext):#STREAMING function
                 links = '\n\n `[+]` '.join(links_final)#saut de ligne entre chaque éléments
             update.message.reply_text(f"💊 Normal search 💊 :\n\n`[+]` {links}\n\n *Status de la request :{error_url} {page.status_code}*", parse_mode=ParseMode.MARKDOWN)
             
-
             
  #QR CODE Function                  
 def qr():
@@ -305,12 +299,10 @@ def secret_help(update: Update, context: CallbackContext):
     requests.post(message)
     update.message.reply_text("U2kgdHUgdHJvdXZlIMOnYSBwYXIgaGF6YXJkIEdHICEgc2lub24gdnJhaW1lbnQgZmFpdCBnYWZmZSDDoCB0b3V0IMOnYSBjJ2VzdCBkYW5nZXJldXguCgovbmlrdG8gW1VSTCBzaXRlIGVuIEhUVFBdIFBvdXIgbGFuY2VyIHVuIHNjYW4gYXZlYyBOaWt0byBzdXIgdW4gc2l0ZSBXZWIuCgovb3VsYWggW1NIRUxMIGNvbW1hbmRdIFBvdXIgbGFuY2VyIGRlcyBjb21tYW5kZXMgc2hlbGw=\n\n/MsG__AlL")
   
-  
     
 def telegram_link(update: Update, context: CallbackContext):
     poukave(update, context)
     update.message.reply_text("Telegram link : t.me/Mehliug_bot\n\nWebApp Link: https://mehliug-bot.glitch.me/")
-
 
 
 #Trigger des fonctions
@@ -332,7 +324,6 @@ updater.dispatcher.add_handler(CommandHandler('qr', qrcode))
 
 updater.dispatcher.add_handler(MessageHandler(Filters.command, unknown))
 updater.dispatcher.add_handler(MessageHandler(Filters.text, unknown))   
-"""
-updater.dispatcher.add_handler(CommandHandler('start', start))
+
 #Run the bot
 updater.start_polling()
