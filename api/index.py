@@ -17,12 +17,14 @@ def run_flask():
 
     # Start le process app.run Flask
     process.start()
-    time.sleep(5)
+    time.sleep(2)
     #Kill le process Flask
     process.terminate()
+    try:
 
-    urllib.request.urlopen("https://timmy-host.vercel.app/api/bot", timeout=3)
-
+        urllib.request.urlopen("https://timmy-host.vercel.app/api/bot")
+    except:
+        pass
 
 if __name__ == "__main__":
     
