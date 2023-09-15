@@ -20,5 +20,5 @@ if __name__ == "__main__":
     
     while True == True :
         time.sleep(60)
-        requests.get("https://timmy-host.vercel.app/api/bot")
+        requests.get("/api/bot")
 
