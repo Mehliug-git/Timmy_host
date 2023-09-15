@@ -9,7 +9,7 @@ TODO:
 -Mettre midjourney pour DALLE (voir si peux pas avoir de clé gratuite )
 
 """
-import requests
+import urllib.request
 #import telegram
 from telegram import ParseMode
 from telegram.ext import Updater, CallbackContext, CommandHandler, MessageHandler, Filters
@@ -155,71 +155,82 @@ def msg_all(update: Update, context: CallbackContext):
 #def des fonctions du bot
    
 
-def moviesearch(update: Update, context: CallbackContext):#STREAMING function
-#USER INPUT 
-        poukave(update, context)
-  
-        URL = ["https://www.wiflixfr.com/", "https://www.wiflix.wine/", "https://www.wawacity.homes/", "https://www.ocine.online/", "https://www.megastream.bond/index.php", "https://www.french-stream.uno/", "https://wwvv.cpasmieux.one/", "https://www.cpasmieux.bid/", "https://www.waystreaming.com/", "https://ww1.33seriestreaming.lol/", "https://www.french-stream.ltd/", "https://www.juststream.cam/","https://www.lebonstream.xyz/", "https://www.zonestreaming.top/"  ]
+def moviesearch(update: Update, context: CallbackContext):
+    # STREAMING function
+    # USER INPUT
+    poukave(update, context)
 
-        film_old = update.message.text.replace('/search ', '')#User input - "/search"
-        #log des recherches
-        with open("search_log.txt", "a+") as f:
-            f.write(f"{film_old}\n")
-        
-        film = film_old.replace(' ', '-')
-        update.message.reply_text(f"🔎 Timmy ! Timmy... 🔎")
-        search_lower = film.lower()
-        search = search_lower.replace(' ', '+')#POST Payload convert
-        
-#LEGAL SEARCH
-        API = "https://streaming-availability.p.rapidapi.com/v2/search/title"
-        querystring = {"title":search,"country":"fr","type":"all","output_language":"en"}
-        headers = {
-	        "X-RapidAPI-Key": rapidapi_key,
-	        "X-RapidAPI-Host": "streaming-availability.p.rapidapi.com"
-        }
+    URL = [
+        "https://www.wiflixfr.com/", "https://www.wiflix.wine/", "https://www.wawacity.homes/",
+        "https://www.ocine.online/", "https://www.megastream.bond/index.php", "https://www.french-stream.uno/",
+        "https://wwvv.cpasmieux.one/", "https://www.cpasmieux.bid/", "https://www.waystreaming.com/",
+        "https://ww1.33seriestreaming.lol/", "https://www.french-stream.ltd/", "https://www.juststream.cam/",
+        "https://www.lebonstream.xyz/", "https://www.zonestreaming.top/"
+    ]
 
-      
-        request = requests.request("GET", API, headers=headers, params=querystring)
-        data_rep = request.json()
-        try : 
-          if len(data_rep['result']) > 0:
-              movie_title = data_rep['result'][0]['title']
-              streaming_info = data_rep['result'][0]['streamingInfo']
+    film_old = update.message.text.replace('/search ', '')  # User input - "/search"
+    # log des recherches
+    with open("search_log.txt", "a+") as f:
+        f.write(f"{film_old}\n")
 
-              urls = re.findall('(http\S+)', str(streaming_info))#ICI FAIRE UNE REGEX QUI PREND PRIME VIDEO NETFLIX ETC
-              urls_final = '\n\n'.join(urls)
-              update.message.reply_text(f"*⚖️ Legal search for {movie_title}⚖️ : \n\n{urls_final}*", parse_mode=ParseMode.MARKDOWN)   
-          else:
-              pass
-        except:
-           pass
-            
-          
-    
-#NORMAL SEARCH 
-        data = {"do":"search", "subaction":"search", "story": {search}}
-        
-        for i in URL:
-            error_url = i.replace('https://', '')
-            page = requests.post(i, data=data)
-            soup = BeautifulSoup(page.content, 'html.parser')
+    film = film_old.replace(' ', '-')
+    update.message.reply_text(f"🔎 Timmy ! Timmy... 🔎")
+    search_lower = film.lower()
+    search = search_lower.replace(' ', '+')  # POST Payload convert
+
+    # LEGAL SEARCH
+    API = "https://streaming-availability.p.rapidapi.com/v2/search/title"
+    querystring = {"title": search, "country": "fr", "type": "all", "output_language": "en"}
+    headers = {
+        "X-RapidAPI-Key": rapidapi_key,
+        "X-RapidAPI-Host": "streaming-availability.p.rapidapi.com"
+    }
+
+    request = urllib.request.Request(url=f"{API}?{urllib.parse.urlencode(querystring)}", headers=headers)
+
+    try:
+        with urllib.request.urlopen(request) as response:
+            data_rep = response.read()
+            data_rep = json.loads(data_rep)
+        if len(data_rep['result']) > 0:
+            movie_title = data_rep['result'][0]['title']
+            streaming_info = data_rep['result'][0]['streamingInfo']
+
+            urls = re.findall('(http\S+)', str(streaming_info))  # ICI FAIRE UNE REGEX QUI PREND PRIME VIDEO NETFLIX ETC
+            urls_final = '\n\n'.join(urls)
+            update.message.reply_text(f"*⚖️ Legal search for {movie_title}⚖️ : \n\n{urls_final}*", parse_mode=ParseMode.MARKDOWN)
+        else:
+            pass
+    except:
+        pass
+
+    # NORMAL SEARCH
+    data = {"do": "search", "subaction": "search", "story": {search}}
+
+    for i in URL:
+        error_url = i.replace('https://', '')
+        try:
+            data = urllib.parse.urlencode(data).encode('utf-8')
+            req = urllib.request.Request(i, data=data)
+            page = urllib.request.urlopen(req)
+            soup = BeautifulSoup(page.read(), 'html.parser')
             url_list = re.findall('(http\S+)', str(soup))
-            #print(url_list)
-                  
-            #pour rechercher le nom du film dans la liste d'url  
+            # print(url_list)
+
+            # pour rechercher le nom du film dans la liste d'url
             for __ in search.split():
                 links_temp = list(filter(lambda x: re.search(__, x), url_list))
                 links_data = '\n\n'.join(links_temp)
-                
-                #Traitement du result
+
+                # Traitement du result
                 pattern = r'https?://[^"\s]+'
-                
+
                 links_final = re.findall(pattern, links_data)
-                
-                links = '\n\n `[+]` '.join(links_final)#saut de ligne entre chaque éléments
+
+                links = '\n\n `[+]` '.join(links_final)  # saut de ligne entre chaque éléments
             update.message.reply_text(f"💊 Normal search 💊 :\n\n`[+]` {links}\n\n *Status de la request :{error_url} {page.status_code}*", parse_mode=ParseMode.MARKDOWN)
-            
+        except:
+            pass
             
  #QR CODE Function                  
 def qr():
