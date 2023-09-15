@@ -16,10 +16,12 @@ def page_web_de_mort():
 
 
 if __name__ == "__main__":
-    app.run()
     
-    while True == True :
+    while True == True:
+        app.run()
+        
+        
         urllib.request.urlopen("https://timmy-host.vercel.app/api/bot")
-        time.sleep(60)
+        time.sleep(2)
         urllib.request.urlopen("https://timmy-host.vercel.app/api/bot")
 
