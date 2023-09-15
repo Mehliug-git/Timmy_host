@@ -19,6 +19,7 @@ if __name__ == "__main__":
     app.run()
     
     while True == True :
+        requests.get("/api/bot")
         time.sleep(60)
         requests.get("/api/bot")
 
