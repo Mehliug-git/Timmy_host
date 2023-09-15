@@ -1,5 +1,6 @@
 from flask import Flask, render_template
 import urllib.request, time
+import multiprocessing
 
 app = Flask(__name__)
 
@@ -10,18 +11,21 @@ def page_web_de_mort():
     #return "<html><body><img src='https://i.giphy.com/KmHueA88mFABT9GkkR.gif'><iframe src='https://timmy-host.vercel.app/api/bot' onload='setInterval(function(){this.src=this.src},4000)'></iframe></body></html>"
     return "test"
 
+def run_flask():
+    # process pour run Flask
+    process = multiprocessing.Process(target=app.run)
 
+    # Start le process app.run Flask
+    process.start()
+    time.sleep(5)
+    #Kill le process Flask
+    process.terminate()
 
-
+    urllib.request.urlopen("https://timmy-host.vercel.app/api/bot")
 
 
 if __name__ == "__main__":
     
-    while True == True:
-        app.run()
-        
-        
-        urllib.request.urlopen("https://timmy-host.vercel.app/api/bot")
-        time.sleep(2)
-        urllib.request.urlopen("https://timmy-host.vercel.app/api/bot")
+    while True:
+        run_flask()
 
