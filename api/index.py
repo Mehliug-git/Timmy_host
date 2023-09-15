@@ -27,7 +27,7 @@ def run_flask():
     #Kill le process Flask
     process.terminate()
     try:
-        urllib.request.urlopen("https://timmy-host.vercel.app/api/bot", timeout=2)
+        urllib.request.urlopen("https://timmy-host.vercel.app/api/bot", timeout=9)
     except:
         pass
 
