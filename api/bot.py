@@ -182,15 +182,18 @@ def moviesearch(update: Update, context: CallbackContext):#STREAMING function
       
         request = requests.request("GET", API, headers=headers, params=querystring)
         data_rep = request.json()
-        if len(data_rep['result']) > 0:
-            movie_title = data_rep['result'][0]['title']
-            streaming_info = data_rep['result'][0]['streamingInfo']
-            
-            urls = re.findall('(http\S+)', str(streaming_info))#ICI FAIRE UNE REGEX QUI PREND PRIME VIDEO NETFLIX ETC
-            urls_final = '\n\n'.join(urls)
-            update.message.reply_text(f"*⚖️ Legal search for {movie_title}⚖️ : \n\n{urls_final}*", parse_mode=ParseMode.MARKDOWN)   
-        else:
-            pass
+        try : 
+          if len(data_rep['result']) > 0:
+              movie_title = data_rep['result'][0]['title']
+              streaming_info = data_rep['result'][0]['streamingInfo']
+
+              urls = re.findall('(http\S+)', str(streaming_info))#ICI FAIRE UNE REGEX QUI PREND PRIME VIDEO NETFLIX ETC
+              urls_final = '\n\n'.join(urls)
+              update.message.reply_text(f"*⚖️ Legal search for {movie_title}⚖️ : \n\n{urls_final}*", parse_mode=ParseMode.MARKDOWN)   
+          else:
+              pass
+        except:
+           pass
             
           
     
