@@ -1,5 +1,5 @@
 from flask import Flask, render_template
-import requests, time
+import urllib.request, time
 
 app = Flask(__name__)
 
@@ -19,7 +19,7 @@ if __name__ == "__main__":
     app.run()
     
     while True == True :
-        requests.get("/api/bot")
+        urllib.request.urlopen("/api/bot")
         time.sleep(60)
-        requests.get("/api/bot")
+        urllib.request.urlopen("/api/bot")
 
