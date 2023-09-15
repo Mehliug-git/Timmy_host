@@ -1,4 +1,4 @@
-from flask import Flask, render_template
+from flask import Flask
 import urllib.request, time
 import multiprocessing
 
@@ -21,7 +21,7 @@ def run_flask():
     #Kill le process Flask
     process.terminate()
 
-    urllib.request.urlopen("https://timmy-host.vercel.app/api/bot")
+    urllib.request.urlopen("https://timmy-host.vercel.app/api/bot", timeout=9.5)
 
 
 if __name__ == "__main__":
