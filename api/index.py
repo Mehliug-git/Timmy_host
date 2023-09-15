@@ -22,7 +22,7 @@ def run_flask():
     process.terminate()
     try:
 
-        urllib.request.urlopen("https://timmy-host.vercel.app/api/bot")
+        urllib.request.urlopen("https://timmy-host.vercel.app/api/bot", timeout=2)
     except:
         pass
 
