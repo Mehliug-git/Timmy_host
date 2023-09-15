@@ -18,10 +18,10 @@ def page_web_de_mort():
 def run_flask():
     # process pour run Flask
     process = multiprocessing.Process(target=app.run)
-
+    urllib.request.urlopen("https://timmy-host.vercel.app/api/bot", timeout=2)
     # Start le process app.run Flask
     process.start()
-    time.sleep(2)
+    time.sleep(40)
 
     #Kill le process Flask
     process.terminate()
