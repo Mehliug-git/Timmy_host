@@ -4,12 +4,16 @@ import multiprocessing, os
 
 app = Flask(__name__)
 
+
+
 @app.route("/")
 def page_web_de_mort():
-    
-    #run_flask()
+    #obligé seulement sur vercel snn ça marche po 
+    run_flask()
 
     return render_template('index.php'),200
+
+
 
 def run_flask():
     # process pour run Flask
@@ -25,6 +29,9 @@ def run_flask():
         urllib.request.urlopen("https://timmy-host.vercel.app/api/bot", timeout=2)
     except:
         pass
+
+
+
 
 if __name__ == "__main__":
     
