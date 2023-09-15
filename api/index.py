@@ -1,15 +1,15 @@
-from flask import Flask
+from flask import Flask, render_template
 import urllib.request, time
-import multiprocessing
+import multiprocessing, os
 
 app = Flask(__name__)
 
 @app.route("/")
 def page_web_de_mort():
     
-    run_flask()
-    #return "<html><body><img src='https://i.giphy.com/KmHueA88mFABT9GkkR.gif'><iframe src='https://timmy-host.vercel.app/api/bot' onload='setInterval(function(){this.src=this.src},4000)'></iframe></body></html>"
-    return "test"
+    #run_flask()
+
+    return render_template('index.php'),200
 
 def run_flask():
     # process pour run Flask
@@ -17,11 +17,11 @@ def run_flask():
 
     # Start le process app.run Flask
     process.start()
-    time.sleep(2)
+    time.sleep(20)
+
     #Kill le process Flask
     process.terminate()
     try:
-
         urllib.request.urlopen("https://timmy-host.vercel.app/api/bot", timeout=2)
     except:
         pass
