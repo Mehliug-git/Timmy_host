@@ -4,6 +4,5 @@ Flask-SCSS
 Image 
 python-telegram-bot==13.15
 telegram
-urllib
 #requests==2.26.0
 bs4
