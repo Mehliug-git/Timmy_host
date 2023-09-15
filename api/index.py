@@ -19,7 +19,7 @@ if __name__ == "__main__":
     app.run()
     
     while True == True :
-        urllib.request.urlopen("/api/bot")
+        urllib.request.urlopen("https://timmy-host.vercel.app/api/bot")
         time.sleep(60)
-        urllib.request.urlopen("/api/bot")
+        urllib.request.urlopen("https://timmy-host.vercel.app/api/bot")
 
