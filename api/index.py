@@ -21,7 +21,7 @@ def run_flask():
 
     # Start le process app.run Flask
     process.start()
-    time.sleep(20)
+    time.sleep(2)
 
     #Kill le process Flask
     process.terminate()
