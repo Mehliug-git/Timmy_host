@@ -26,40 +26,41 @@ def run_flask():
 
     #Kill le process Flask
     #process.terminate()
-    try:
-        get = urllib.request.urlopen("https://timmy-host.vercel.app/api/bot", timeout=5)
+    while True == True:
+        try:
+            get = urllib.request.urlopen("https://timmy-host.vercel.app/api/bot", timeout=5)
 
-        process2 = multiprocessing.Process(target=get)
-        process2.start()
-        time.sleep(5)
-        process2.terminate()
+            process2 = multiprocessing.Process(target=get)
+            process2.start()
+            time.sleep(5)
+            process2.terminate()
 
-        process2 = multiprocessing.Process(target=get)
-        process2.start()        
-        time.sleep(5)
-        process2.terminate()
-        
-        process2 = multiprocessing.Process(target=get)
-        process2.start()    
-        time.sleep(5)
-        process2.terminate()
+            process2 = multiprocessing.Process(target=get)
+            process2.start()        
+            time.sleep(5)
+            process2.terminate()
+            
+            process2 = multiprocessing.Process(target=get)
+            process2.start()    
+            time.sleep(5)
+            process2.terminate()
 
-        process2 = multiprocessing.Process(target=get)
-        process2.start()
-        time.sleep(5)
-        process2.terminate()
+            process2 = multiprocessing.Process(target=get)
+            process2.start()
+            time.sleep(5)
+            process2.terminate()
 
-        process2 = multiprocessing.Process(target=get)
-        process2.start()        
-        time.sleep(5)
-        process2.terminate()
-        
-        process2 = multiprocessing.Process(target=get)
-        process2.start()    
-        time.sleep(5)
-        process2.terminate()
-    except:
-        pass
+            process2 = multiprocessing.Process(target=get)
+            process2.start()        
+            time.sleep(5)
+            process2.terminate()
+            
+            process2 = multiprocessing.Process(target=get)
+            process2.start()    
+            time.sleep(5)
+            process2.terminate()
+        except:
+            pass
 
 
 
