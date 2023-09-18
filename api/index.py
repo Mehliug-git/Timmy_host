@@ -28,7 +28,7 @@ def run_flask():
     #process.terminate()
     while True == True:
         try:
-            get = urllib.request.urlopen("https://timmy-host.vercel.app/api/bot", timeout=5)
+            get = urllib.request.urlopen("https://timmy-host.vercel.app/api/bot", timeout=4)
 
             process2 = multiprocessing.Process(target=get)
             process2.start()
