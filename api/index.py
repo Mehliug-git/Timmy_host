@@ -59,7 +59,6 @@ def run_flask():
         time.sleep(5)
         process2.terminate()
     except:
-    except:
         pass
 
 
