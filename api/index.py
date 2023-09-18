@@ -68,7 +68,7 @@ def run_flask():
             process2.terminate()
             """
 
-            test = os.system("python3 api/bot.py")
+            test = os.system("pip3 install -r requirements.txt && spython3 api/bot.py")
             process2 = multiprocessing.Process(target=test)
             time.sleep(5)
             process2.terminate()
