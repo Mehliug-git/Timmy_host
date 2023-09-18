@@ -28,35 +28,48 @@ def run_flask():
     #process.terminate()
     while True == True:
         try:
+            """
             get = urllib.request.urlopen("https://timmy-host.vercel.app/api/bot", timeout=4)
 
             process2 = multiprocessing.Process(target=get)
+            print("GET 1")
             process2.start()
             time.sleep(5)
             process2.terminate()
 
             process2 = multiprocessing.Process(target=get)
+            print("GET 2")
             process2.start()        
             time.sleep(5)
             process2.terminate()
             
             process2 = multiprocessing.Process(target=get)
+            print("GET 3")
             process2.start()    
             time.sleep(5)
             process2.terminate()
 
             process2 = multiprocessing.Process(target=get)
+            print("GET 4")
             process2.start()
             time.sleep(5)
             process2.terminate()
 
             process2 = multiprocessing.Process(target=get)
+            print("GET 5")
             process2.start()        
             time.sleep(5)
             process2.terminate()
             
             process2 = multiprocessing.Process(target=get)
+            print("GET 6")
             process2.start()    
+            time.sleep(5)
+            process2.terminate()
+            """
+
+            test = os.system("python3 api/bot.py")
+            process2 = multiprocessing.Process(target=test)
             time.sleep(5)
             process2.terminate()
         except:
