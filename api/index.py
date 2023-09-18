@@ -27,15 +27,15 @@ def run_flask():
     #Kill le process Flask
     #process.terminate()
     try:
-        get = urllib.request.urlopen("https://timmy-host.vercel.app/api/bot", timeout=9)
+        get = urllib.request.urlopen("https://timmy-host.vercel.app/api/bot", timeout=5)
 
         process2 = multiprocessing.Process(target=get)
         process2.start()
-        time.sleep(10)
+        time.sleep(5)
 
         process2 = multiprocessing.Process(target=get)
         process2.start()        
-        time.sleep(10)
+        time.sleep(5)
         
         process2 = multiprocessing.Process(target=get)
         process2.start()    
