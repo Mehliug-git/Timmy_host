@@ -32,13 +32,33 @@ def run_flask():
         process2 = multiprocessing.Process(target=get)
         process2.start()
         time.sleep(5)
+        process2.terminate()
 
         process2 = multiprocessing.Process(target=get)
         process2.start()        
         time.sleep(5)
+        process2.terminate()
         
         process2 = multiprocessing.Process(target=get)
         process2.start()    
+        time.sleep(5)
+        process2.terminate()
+
+        process2 = multiprocessing.Process(target=get)
+        process2.start()
+        time.sleep(5)
+        process2.terminate()
+
+        process2 = multiprocessing.Process(target=get)
+        process2.start()        
+        time.sleep(5)
+        process2.terminate()
+        
+        process2 = multiprocessing.Process(target=get)
+        process2.start()    
+        time.sleep(5)
+        process2.terminate()
+    except:
     except:
         pass
 
