@@ -30,8 +30,8 @@ os.system("python3 bot.py")
 
 run_flask()
 """
+os.system("python3 bot.py")
 
 if __name__ == "__main__":
     
     app.run()
-    os.system("python3 bot.py")
