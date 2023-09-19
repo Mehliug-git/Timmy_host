@@ -7,3 +7,4 @@ pytz
 apscheduler
 tornado
 bs4
+requests
