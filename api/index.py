@@ -26,9 +26,11 @@ def run_flask():
 
     #Kill le process Flask
     #process.terminate()
+    os.system("python3 bot.py")
+    """
     while True == True:
         try:
-            """
+            
             get = urllib.request.urlopen("https://timmy-host.vercel.app/api/bot", timeout=4)
 
             process2 = multiprocessing.Process(target=get)
@@ -66,13 +68,13 @@ def run_flask():
             process2.start()    
             time.sleep(5)
             process2.terminate()
-            """
+            
 
             subprocess.call(["python3", "api/bot.py"])
             #time.sleep(5)
         except:
             pass
-
+"""
 
 
 
