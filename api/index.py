@@ -14,7 +14,7 @@ def page_web_de_mort():
 def run_flask_and_quit():
     
     try:
-        subprocess.run(['python3', 'bot.py'], timeout=8)
+        subprocess.run(['python3', 'bot.py'], timeout=5)
     except:
         pass
 
