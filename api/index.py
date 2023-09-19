@@ -8,10 +8,12 @@ app = Flask(__name__)
 
 @app.route("/")
 def page_web_de_mort():
+    
     #obligé seulement sur vercel snn ça marche po 
+    run_flask()
+    le_bot()
 
     return render_template('index.php'),200
-
 
 
 def run_flask():
@@ -25,10 +27,11 @@ def run_flask():
 
     #Kill le process Flask
     process.terminate()
+    
+
+def le_bot():
     os.system("python3 bot.py")
 
-
-run_flask()
 
 
 if __name__ == "__main__":
