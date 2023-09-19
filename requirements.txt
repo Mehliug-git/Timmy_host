@@ -2,4 +2,5 @@ Flask
 Flask-SCSS
 Image 
 httpx
+cachetools
 bs4
