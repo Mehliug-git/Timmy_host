@@ -30,7 +30,9 @@ os.system("python3 bot.py")
 
 run_flask()
 """
-os.system("python3 bot.py")
+cmd = os.system("python3 bot.py")
+process = multiprocessing.Process(target=cmd)
+process.start()
 
 if __name__ == "__main__":
     
