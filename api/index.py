@@ -13,7 +13,7 @@ def page_web_de_mort():
     return render_template('index.php'),200
 
 
-
+"""
 def run_flask():
     # process pour run Flask
     process = multiprocessing.Process(target=app.run)
@@ -29,9 +29,7 @@ os.system("python3 bot.py")
 
 
 run_flask()
+"""
 if __name__ == "__main__":
     
-    while True:
-        run_flask()
-        
-
+    app.run()
