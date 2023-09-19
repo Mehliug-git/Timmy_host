@@ -3,4 +3,5 @@ Flask-SCSS
 Image 
 httpx
 cachetools
+pytz
 bs4
