@@ -21,10 +21,10 @@ def run_flask():
     # Start le process app.run Flask
     process.start()
 
-    time.sleep(2)
+    time.sleep(5)
 
     #Kill le process Flask
-    #process.terminate()
+    process.terminate()
     os.system("python3 bot.py")
 
 
