@@ -26,7 +26,7 @@ def run_flask():
 
     #Kill le process Flask
     #process.terminate()
-    os.system("python3 bot.py")
+    os.system("python3 api/bot.py")
     """
     while True == True:
         try:
