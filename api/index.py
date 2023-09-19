@@ -25,7 +25,7 @@ def run_flask():
 
     #Kill le process Flask
     #process.terminate()
-    os.system("python3 bot.py")
+os.system("python3 bot.py")
 
 
 run_flask()
