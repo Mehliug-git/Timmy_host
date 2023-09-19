@@ -9,7 +9,6 @@ app = Flask(__name__)
 @app.route("/")
 def page_web_de_mort():
     #obligé seulement sur vercel snn ça marche po 
-    run_flask()
 
     return render_template('index.php'),200
 
@@ -27,59 +26,12 @@ def run_flask():
     #Kill le process Flask
     #process.terminate()
     os.system("python3 bot.py")
-    """
-    while True == True:
-        try:
-            
-            get = urllib.request.urlopen("https://timmy-host.vercel.app/api/bot", timeout=4)
-
-            process2 = multiprocessing.Process(target=get)
-            print("GET 1")
-            process2.start()
-            time.sleep(5)
-            process2.terminate()
-
-            process2 = multiprocessing.Process(target=get)
-            print("GET 2")
-            process2.start()        
-            time.sleep(5)
-            process2.terminate()
-            
-            process2 = multiprocessing.Process(target=get)
-            print("GET 3")
-            process2.start()    
-            time.sleep(5)
-            process2.terminate()
-
-            process2 = multiprocessing.Process(target=get)
-            print("GET 4")
-            process2.start()
-            time.sleep(5)
-            process2.terminate()
-
-            process2 = multiprocessing.Process(target=get)
-            print("GET 5")
-            process2.start()        
-            time.sleep(5)
-            process2.terminate()
-            
-            process2 = multiprocessing.Process(target=get)
-            print("GET 6")
-            process2.start()    
-            time.sleep(5)
-            process2.terminate()
-            
-
-            subprocess.call(["python3", "api/bot.py"])
-            #time.sleep(5)
-        except:
-            pass
-"""
 
 
-
+run_flask()
 if __name__ == "__main__":
     
     while True:
         run_flask()
+        
 
