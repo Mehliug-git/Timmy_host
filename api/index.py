@@ -1,4 +1,4 @@
-import subprocess
+import os
 import threading
 from flask import Flask, render_template
 
@@ -16,7 +16,7 @@ def run_bot():
     # process pour exécuter le bot
     print("bot start heheheha")
     
-    subprocess.run(['python3', 'bot.py'])
+    os.system("python3 bot.py")
 
 if __name__ == "__main__":
     app.run()
