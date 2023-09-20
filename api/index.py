@@ -4,6 +4,9 @@ import multiprocessing, os
 
 app = Flask(__name__)
 
+
+#ctrlc = keyboard.press_and_release('ctrl+c')
+
 def simulate_ctrl_c():
     time.sleep(2)
     keyboard.press_and_release('ctrl+c')
@@ -17,13 +20,11 @@ def page_web_de_mort():
     return render_template('index.php')
 
 
-
-
 def run_flask_and_quit():
     # process pour run Flask
     print(2)
     try:
-        subprocess.run(['python3', 'bot.py'], timeout=10)
+        subprocess.run(['python3', '../bot.py'], timeout=10)
     except:
         pass
 
