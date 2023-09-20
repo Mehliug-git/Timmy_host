@@ -24,7 +24,7 @@ def run_flask_and_quit():
     # process pour run Flask
     print(2)
     try:
-        subprocess.run(['python3', '../bot.py'], timeout=10)
+        subprocess.run(['python3', '../bot.py'], timeout=5)
     except:
         pass
 
