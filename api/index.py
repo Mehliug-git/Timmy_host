@@ -16,7 +16,7 @@ def run_bot():
     # process pour exécuter le bot
     print("bot start heheheha")
     try:
-        subprocess.run(['python3', 'bot.py'])
+        subprocess.run(['python3', '../bot.py'])
     except:
         pass
 
