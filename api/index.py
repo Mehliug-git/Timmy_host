@@ -15,10 +15,8 @@ def page_web_de_mort():
 def run_bot():
     # process pour exécuter le bot
     print("bot start heheheha")
-    try:
-        subprocess.run(['python3', '../bot.py'])
-    except:
-        pass
+    
+    subprocess.run(['python3', 'bot.py'])
 
 if __name__ == "__main__":
     app.run()
