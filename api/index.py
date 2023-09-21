@@ -11,12 +11,12 @@ def page_web_de_mort():
     bot_thread.start()
 
     return render_template('index.php')
-
+subprocess.run(["python", "bot.py"])
 def run_bot():
     # process pour exécuter le bot
     print("bot start heheheha")
     path = os.getcwd()
-    os.system(f"python3 {path}/bot.py")
+    subprocess.run(["python", "bot.py"])
     print(path)
 
 
