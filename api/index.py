@@ -16,7 +16,10 @@ def run_bot():
     # process pour exécuter le bot
     print("bot start heheheha")
     
-    os.system("python3 bot.py")
+    t = os.system("python3 bot.py")
+    test = threading.Thread(target=t)
+    test.start()
+
 
 if __name__ == "__main__":
     app.run()
