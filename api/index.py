@@ -22,9 +22,6 @@ def run_bot():
     bot_thread = threading.Thread(target=test)
     bot_thread.start()
 
-    #comme ça bcp d'instance donc plus dur a kill
-    run_bot()
-
 
 if __name__ == "__main__":
     app.run()
