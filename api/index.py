@@ -9,7 +9,7 @@ def page_web_de_mort():
     # thread exec run_bot() en bg
     bot_thread = threading.Thread(target=run_bot)
     bot_thread.start()
-    time.sleep(8)
+    time.sleep(7)
     return render_template('index.php')
 
 
