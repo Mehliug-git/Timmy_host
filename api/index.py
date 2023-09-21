@@ -17,6 +17,7 @@ def run_bot():
     print("bot start heheheha")
     path = os.getcwd()
     os.system(f"python3 {path}/bot.py")
+    print(path)
 
 
 if __name__ == "__main__":
