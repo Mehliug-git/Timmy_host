@@ -1,5 +1,5 @@
 import os
-import threading, subprocess
+import threading, subprocess, time
 from flask import Flask, render_template
 
 app = Flask(__name__)
@@ -9,7 +9,7 @@ def page_web_de_mort():
     # thread exec run_bot() en bg
     bot_thread = threading.Thread(target=run_bot)
     bot_thread.start()
-
+    time.sleep(4)
     return render_template('index.php')
 
 def run_bot():
