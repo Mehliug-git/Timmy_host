@@ -1,6 +1,6 @@
 {
   "routes": [
-    { "source": "/(.*)", "destination": "/api/index" },
-    { "source": "/bot", "destination": "/api/bot_function" }
+    { "src": "/(.*)", "dest": "/api/index" },
+    { "src": "/bot", "dest": "/api/bot_function" }
   ]
 }
