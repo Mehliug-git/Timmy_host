@@ -34,7 +34,7 @@ def start(update: Update, context: CallbackContext):
 #Pour stocker les chat_id  
 def poukave(update: Update, context: CallbackContext):
   chat_id = str(update.effective_user.id)
-  
+  """
   with open("chat_id.txt", "a+") as f:
     if chat_id not in f.read():
       f.write(f"{chat_id}\n")
@@ -43,7 +43,7 @@ def poukave(update: Update, context: CallbackContext):
     else:
       print("pas besoin du chat_id TMTC")
       return
-
+  """
 
 
 #Admin auth for admin ressources        
