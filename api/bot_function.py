@@ -5,4 +5,5 @@ def run_bot():
         subprocess.run(['python3', 'bot.py'])
     except:
         pass
+    return "TEST"
        
